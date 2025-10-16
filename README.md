@@ -38,6 +38,7 @@ This project manages on-duty staff, supports manual and automatic scheduling, an
 
 ### Project Structure
 
+```text
 ├── backend/
 │   ├── app/
 │   │   ├── __init__.py
@@ -58,6 +59,7 @@ This project manages on-duty staff, supports manual and automatic scheduling, an
 │   ├── Dockerfile
 │   └── package.json
 └── docker-compose.yml
+```
 
 
 ### Getting Started
