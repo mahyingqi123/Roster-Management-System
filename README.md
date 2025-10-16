@@ -73,21 +73,6 @@ scripts/run_backend_local.sh
 scripts/run_frontend_local.sh  
 ```
 
-- Backend will use `DATABASE_URL=postgresql://user:password@localhost:5432/mydatabase`.
-- URLs: API `http://localhost:8000` (Swagger: `/docs`), Frontend `http://localhost:8080`.
-
-- Prerequisites:
-  - Docker and Docker Compose installed
-  - Or for local dev without Docker: Python 3.11+, Node.js 18+
-
-- Environment Variables (suggested):
-  - Backend:
-    - `DATABASE_URL` (default: `sqlite:///./app.db`)
-    - `BACKEND_PORT` (default: `8000`)
-  - Frontend:
-    - `VITE_API_BASE` (default: `http://localhost:8000`)
-    - `FRONTEND_PORT` (default: `8080`)
-
 ### Run with Docker Compose
 
 - Build and start services:
@@ -96,27 +81,13 @@ scripts/run_frontend_local.sh
 docker compose up --build -d
 ```
 
-- Stop services:
-
-```bash
-docker compose down
-```
-
-
 ### Local Development 
 
 - Backend:
-  1. Create virtual env and install deps
-
 ```bash
 cd backend
-python -m venv .venv && source .venv/bin/activate  # Windows: .venv\Scripts\activate
 pip install -r requirements.txt
-```
 
-  2. Run the API
-
-```bash
 uvicorn app.main:app --reload --port 8000
 ```
 
@@ -174,7 +145,7 @@ npm run dev
 ### Scheduling Logic (baseline)
 - Manual assignment: user picks a date, shift type, and staff.
 - Automatic scheduling (simple heuristic):
-  - Iterate dates and shift types; for each, choose the staff member with the lowest current assignment count who is not yet assigned on that date and meets constraints (e.g., max shifts/day).
+  - Iterate dates and shift types; for each, choose the staff member with the lowest current assignment count who is not yet assigned on that date and meets constraints.
   - Ensure fairness by round‑robin distribution and balance total load across staff.
 
 
@@ -202,15 +173,3 @@ cd frontend
 npm install
 npm run test
 ```
-
-Optional (frontend): interactive test UI/watch mode
-
-```bash
-npm run test:ui
-```
-
-
-### Notes
-- Start simple with SQLite and evolve to Postgres/MySQL if needed.
-- Keep business logic in services/CRUD and schemas cleanly separated from API routes.
-- Use migrations (e.g., Alembic) when moving beyond SQLite.
