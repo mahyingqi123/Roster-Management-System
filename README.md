@@ -5,6 +5,10 @@ A duty roster management system using FastAPI and Vue.js
 ### Overview
 This project manages on-duty staff, supports manual and automatic scheduling, and provides a web UI to view schedules and statistics. The backend is built with FastAPI and a relational database via an ORM, and the frontend is built with Vue.js.
 
+### Video Demo
+
+https://github.com/user-attachments/assets/4378053a-c724-46cb-8c3d-0722c9cecd91
+
 
 ### Requirements (需求)
 - 设计一个值班人员管理系统，实现以下功能：
