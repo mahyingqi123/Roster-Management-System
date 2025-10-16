@@ -67,8 +67,6 @@ This project manages on-duty staff, supports manual and automatic scheduling, an
 #### Quick start (local scripts)
 - Starts Postgres via Docker, runs backend (FastAPI) and frontend (Vite) locally.
 
-macOS/Linux or Windows (Git Bash/WSL):
-
 ```bash
 scripts/start_db.sh
 scripts/run_backend_local.sh  
@@ -104,11 +102,6 @@ docker compose up --build -d
 docker compose down
 ```
 
-- After startup:
-  - API: `http://localhost:8000`
-  - API Docs (Swagger): `http://localhost:8000/docs`
-  - Frontend: `http://localhost:5173` (or as configured in `frontend/Dockerfile`)
-
 
 ### Local Development 
 
@@ -133,13 +126,6 @@ uvicorn app.main:app --reload --port 8000
 cd frontend
 npm install
 npm run dev
-```
-
-Alternatively, use the helper scripts from repo root:
-
-```bash
-scripts/run_backend_local.sh      # sets up venv, installs deps, runs uvicorn
-scripts/run_frontend_local.sh     # installs deps and runs Vite dev server
 ```
 
 
